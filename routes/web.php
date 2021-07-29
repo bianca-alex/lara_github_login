@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('auth')->group(function(){
+
+    Route::get('github/login', [LoginController::class, 'redirectToProvider']);
+    Route::get('github/redirect', [LoginController::class, 'handleProviderCallback']);
 });
