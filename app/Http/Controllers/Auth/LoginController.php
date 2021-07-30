@@ -19,7 +19,8 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
-        $oauthUser = Socialite::driver('github')->user();
+        // stateless 禁用会话状态认证
+        $oauthUser = Socialite::driver('github')->stateless()->user();
         $user = User::where('email', $oauthUser->email)->first();
 
         $data = [

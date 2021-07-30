@@ -33,7 +33,7 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://101.132.164.70/auth/github/redirect',
+        'redirect' => '/auth/github/redirect',
     ],
 
 ];
